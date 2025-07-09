@@ -4,7 +4,6 @@ import Card from './card/card';
 const Section2 = () => {
     return (
         <div className="row align-items-center text-center">
-            <h2 className="tothelefth2  text-center p-3">Welcome to Online Course Compare</h2>
             <div className="row justify-content-center mb-4">
                 <div className="col-md-4">
                 <Card 

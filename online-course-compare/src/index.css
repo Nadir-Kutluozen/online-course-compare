@@ -13,14 +13,4 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-p {
-  margin: 0 0 1em;
-  font-size: 0.8rem;
-  line-height: 1.5;
-}
-@media screen and (max-width: 600px) {
-  p {
-    font-size: 4vw;
-  }
-  
-}
+
