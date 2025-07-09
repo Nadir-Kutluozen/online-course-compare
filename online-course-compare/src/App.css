@@ -2,15 +2,52 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
-.card {
-  padding: 2em;
-  border: 0.1em solid transparent;
-  border-color: black;
-  border-radius: 1em;
-  box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+.totheleft {
+  font-size: 7vw; 
+  text-align: left; 
+  color: #333; /* Optional: sets a color */   
+  text-transform: uppercase; /* Optional: makes it uppercase */
+  letter-spacing: -0.05em; /* Optional: adjusts letter spacing */
+  /* Optional: adds a bit of spacing between letters */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */ 
+  font-weight: bold; /* Optional: makes it stand out more */
+  line-height: 1.0; /* Optional: adjusts line height for better readability */
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+}
+@media screen and (max-width: 600px) {
+  .totheleft {
+    font-size: 15vw; /* Adjusts the font size for smaller screens */
+  }
+  
+}
+.tothelefth2 {
+  font-size: 4vw; 
+  text-align: left; 
+  color: #333; /* Optional: sets a color */   
+  text-transform: uppercase; /* Optional: makes it uppercase */
+  letter-spacing: -0.05em; /* Optional: adjusts letter spacing */
+  /* Optional: adds a bit of spacing between letters */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */ 
+  font-weight: bold; /* Optional: makes it stand out more */
+  line-height: 1.0; /* Optional: adjusts line height for better readability */
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+}
+@media screen and (max-width: 600px) {
+  .tothelefth2 {
+    font-size: 7vw; /* Adjusts the font size for smaller screens */
+  }
+  
 }
 
+
+.section {
+  height: 100vh;
+}
+
+
+ 

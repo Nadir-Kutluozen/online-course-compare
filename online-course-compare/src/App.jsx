@@ -1,18 +1,14 @@
-import { useState } from 'react'
+import { useRef } from 'react'
 import './App.css'
+import Section2 from './section2/section2'  // Importing Section2 component
+import Homepage from './landingpage/homepage'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      
-      <h1>Online Course Compare</h1>
-      <div className="card">
-        <p>
-           <code>coming soon...</code> 
-        </p>
-      </div>
+    <Homepage /> {/* Rendering Homepage component */}
+    <Section2/>  {/* Rendering Section2 component */}
     </>
   )
 }
