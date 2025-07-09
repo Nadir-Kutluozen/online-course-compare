@@ -15,7 +15,7 @@ const Homepage = () => {
                     </div>
 
                     <div className='col-md-6 p-3 d-flex flex-column align-items-center'>
-                        <img className='img-fluid custom-img mb-3' src='https://www.onlinecoursecompare.com//home_page_logo.svg' alt='Online Course Compare' />
+                        <img className='img-fluid custom-img mb-3' src='https://www.onlinecoursecompare.com/home_page_logo.svg' alt='Online Course Compare' />
                         <a className='m-3 btn btn-lg btn-outline-dark' href="#two">Start</a>
                     </div> {/* end of the second col */}
 
