@@ -25,8 +25,7 @@
   
 }
 .tothelefth2 {
-  font-size: 4vw; 
-  text-align: left; 
+  font-size: 3vw; 
   color: #333; /* Optional: sets a color */   
   text-transform: uppercase; /* Optional: makes it uppercase */
   letter-spacing: -0.05em; /* Optional: adjusts letter spacing */
@@ -43,7 +42,6 @@
   }
   
 }
-
 
 .section {
   height: 100vh;
