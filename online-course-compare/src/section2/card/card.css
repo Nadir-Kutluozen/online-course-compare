@@ -1,4 +1,4 @@
-.card {
+.card-custom {
     width: 100%; /* Make it responsive */
     max-width: 280px; /* Limit the maximum width */
     margin: 16px auto; /* Center the card and add spacing */
@@ -18,27 +18,42 @@
     border-radius: 12px 12px 0 0;
 }
 
-.card:hover {
+.card-custom:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-.card-title {
-    font-size: 0.8rem;
+.card-tit {
+    font-size: 2vw;
     font-weight: bold;
     margin-bottom: 8px;
 }
 
-.card-image {
-    width: 50px; /* Make the image responsive */
+.card-image- {
+    width: 50px; 
     height: auto;
-    border-radius: 12px 12px 0 0;
 }
 
-.card-description {
+.card-desc {
     font-size: 0.6rem;
     color: rgba(0, 0, 0, 0.6);
     margin-top: 8px;
 }
+
+@media only screen and (max-width: 600px) {
+    .card-desc {
+        font-size: 0.8rem;
+        color: rgba(0, 0, 0, 0.6);
+        margin-top: 8px;
+    }
+
+    .card-tit {
+        font-size: 5vw;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+}
+
+
 
 

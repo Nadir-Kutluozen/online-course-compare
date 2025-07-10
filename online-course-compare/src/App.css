@@ -6,7 +6,7 @@
 
 
 .totheleft {
-  font-size: 7vw; 
+  font-size: 6vw; 
   text-align: left; 
   color: #333; /* Optional: sets a color */   
   text-transform: uppercase; /* Optional: makes it uppercase */
@@ -48,14 +48,3 @@
 }
 
 
-p {
-  margin: 0 0 1em;
-  font-size: 0.8rem;
-  line-height: 1.5;
-}
-@media screen and (max-width: 600px) {
-  p {
-    font-size: 4vw;
-  }
-  
-}
