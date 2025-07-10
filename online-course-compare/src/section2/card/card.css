@@ -1,7 +1,7 @@
 .card-custom {
     width: 100%; /* Make it responsive */
     max-width: 320px; /* Limit the maximum width */
-    height: 400px; /* Set a minimum height */
+    height: 420px; /* Set a minimum height */
     margin: 16px auto; /* Center the card and add spacing */
     padding: 16px;
     border-radius: 12px;
@@ -55,6 +55,10 @@
         font-size: 5vw;
         font-weight: bold;
         margin-bottom: 8px;
+    }
+
+    .card-custom{
+        height: 220px;
     }
 }
 
