@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  max-width: 1280px; /* Sets a maximum width for the root element */
   margin: 0 auto;
   padding: 2rem;
 }
@@ -47,4 +47,22 @@
   height: 100vh;
 }
 
+.display-1{
+  letter-spacing: -0.03em; /* Adjusts letter spacing for the display-1 class */
+}
 
+
+.btn-custom {
+  background-color: #007bff !important; /* Sets a blue background color */
+  color: white !important; /* Sets the text color to white */
+  padding: 10px 20px; /* Adds padding around the button */
+  border: none; /* Removes default border */
+  border-radius: 25px; /* Rounds the corners of the button */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  font-size: 1.3rem; /* Sets font size */
+  transition: background-color 0.3s ease; /* Adds a transition effect for hover state */
+}
+
+.btn-custom:hover {
+  background-color: #49fc7b !important; /* Changes background color on hover */
+}

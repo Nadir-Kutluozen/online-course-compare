@@ -5,7 +5,7 @@ const CourseSearchInput = ({ placeholder }) => {
     return (
       <input
         type="text"
-        className="form-control mb-3"
+        className="mb-3 custom-course-input"
         placeholder={placeholder || "Search by course name..."}
       />
     );

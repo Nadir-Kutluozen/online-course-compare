@@ -4,15 +4,20 @@ import Section2 from './section2/section2'
 import Homepage from './landingpage/homepage'
 import Action from './action/action'
 import { inject } from '@vercel/analytics' 
+import Footer from './footer/Footer'
+import Header from './header/Header'
+
 
 
 inject() 
 function App() {
   return (
     <>
+      <Header />
       <Homepage />
       <Action />
       <Section2 />
+      <Footer />
     </>
   )
 }

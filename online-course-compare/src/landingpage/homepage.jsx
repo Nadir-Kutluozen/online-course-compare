@@ -10,7 +10,7 @@ const Homepage = () => {
                         <div className=''>
                             
                             <h1 className='totheleft'>Online</h1>
-                            <h1 className='totheleft'>Course</h1>
+                            <h1 className='totheleft custom-blue'>Course</h1>
                             <h1 className='totheleft'>Compare</h1>
                             <p className='pt-3  lead'>Find the best online courses for you. Make informed decisions. Start your learning journey today! Compare courses from different platforms</p>
                         </div> {/* end of the first col */}
