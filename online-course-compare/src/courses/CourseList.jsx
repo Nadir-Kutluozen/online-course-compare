@@ -10,7 +10,7 @@ function CourseList() {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/courses")
+    fetch("https://onlinecourse-backend-okdb.onrender.com/courses")
       .then((res) => res.json())
       .then((data) => setCourses(data))
       .catch((err) => console.error("Failed to fetch courses:", err));
