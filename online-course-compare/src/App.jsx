@@ -6,6 +6,8 @@ import Action from './action/action'
 import { inject } from '@vercel/analytics' 
 import Footer from './footer/Footer'
 import Header from './header/Header'
+import CourseList from './courses/CourseList'
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 
 

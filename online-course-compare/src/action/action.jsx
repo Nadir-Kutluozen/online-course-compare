@@ -1,35 +1,132 @@
-import React from "react";  
+import React, { useState } from "react";
 import CourseSearchInput from "../section2/courseSearchInput";
-import "./action.css"; // Import the CSS file for styling
+import "./action.css";
+import { renderStars } from "./helperFuncsAction"; // Assuming you have a utility function for rendering stars
+import { renderLanguage } from "./helperFuncsAction"; // Assuming you have a utility function for rendering languages
+import { formatUdemyUrl } from './helperFuncsAction';
+
 const Action = () => {
-    return (
-        <>
-        <div className="action-section p-5" id="action">
-        <h2 className="pb-4 text-center display-1">Ready to compare?</h2>
-        <p className="pb-4 lead text-center">the result will appear down below </p>
-            <div className="row align-items-center text-center">
-                <div className="col-md-5">
-                    <CourseSearchInput placeholder="Search by courses..." />
-                </div>
+  const [courseA, setCourseA] = useState(null);
+  const [courseB, setCourseB] = useState(null);
 
-                <div className="col-md-2">
-                    <h2 className=" vs">vs</h2>
-                </div>
+  return (
+    <>
+      <div className="action-section  p-4" id="action">
+        <div className="container">
+        <h2 className="pb-5 text-center display-1">Ready to compare?</h2>
+        <p className="pb-5 lead text-center">Pick the course you would like to compare and the result will appear down below</p>
+        <div className="row align-items-center text-center">
+          <div className="col-md-5">
+            <CourseSearchInput
+              placeholder="Search for Course..."
+              onCourseSelect={(course) => setCourseA(course)}
+            />
+          </div>
 
-                <div className="col-md-5 ">
-                    <CourseSearchInput placeholder="Search by courses..." />
-                </div>
-                <div className="text-center">
-                <button href="" className="btn-custom">Compare <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5"/>
-</svg></button>
-            </div>
-            </div>
+          <div className="col-md-2">
+            <h2 className="lead">vs</h2>
+          </div>
+
+          <div className="col-md-5">
+            <CourseSearchInput
+              placeholder="Search Course..."
+              onCourseSelect={(course) => setCourseB(course)}
+            />
+          </div>
         </div>
-        
-            
-        </>
-    );
+        </div>
+
+        {courseA && courseB && (
+            <div className="comparison-results mt-5 container text-center" >
+  <h4 className="text-center my-5 display-6">Course Comparison</h4>
+
+  <div className="row justify-content-center mb-4">
+    <div className="col-md-5 text-center">
+      <img src={courseA.image} alt={courseA.title} className="img-fluid course-image-comp mb-3" />
+    </div>
+    <div className="col-md-1 d-flex align-items-center justify-content-center">
+      <h2 className="lead">vs</h2>
+    </div>
+    <div className="col-md-5 text-center">
+      <img src={courseB.image} alt={courseB.title} className="img-fluid course-image-comp mb-3" />
+    </div>
+  </div>
+  <div className="table-responsive-sm">
+  <table className="table  rounded text-center mx-auto align-middle">
+    <thead className="table-white">
+      <tr>
+        <th></th>
+        <th>{courseA.title}</th>
+        <th>{courseB.title}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><i className="bi bi-currency-dollar me-2"></i> </td>
+        <td>${courseA.price}</td>
+        <td>${courseB.price}</td>
+      </tr>
+      <tr>
+        <td><i className="bi bi-star-fill me-2"></i> </td>
+        <td>{renderStars(courseA.rating)}</td>
+        <td>{renderStars(courseB.rating)}</td>
+      </tr>
+      <tr>
+        <td><i className="bi bi-clock me-2"></i> </td>
+        <td>{courseA.course_length}</td>
+        <td>{courseB.course_length}</td>
+      </tr>
+      <tr>
+        <td><i className="bi bi-info-circle me-2"></i> </td>
+        <td>{courseA.headline}</td>
+        <td>{courseB.headline}</td>
+      </tr>
+      <tr>
+        <td><i className="bi bi-person-video3 me-2"></i> </td>
+        <td>{courseA.instructor_names}</td>
+        <td>{courseB.instructor_names}</td>
+      </tr>
+      <tr>
+        <td><i className="bi bi-diagram-3-fill me-2"></i> </td>
+        <td>{courseA.level}</td>
+        <td>{courseB.level}</td>
+      </tr>
+      <tr>
+        <td><i className="bi bi-translate me-2"></i> </td>
+        <td>{renderLanguage(courseA.locale)}</td>
+        <td>{renderLanguage(courseB.locale)}</td>
+      </tr>
+      <tr>
+  <td><i className="bi bi-link-45deg me-2"></i></td>
+  <td>
+    <a
+      href={formatUdemyUrl(courseA.url)}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="btn-custom"
+    >
+      Learn More about Course
+    </a>
+  </td>
+  <td>
+    <a
+      href={formatUdemyUrl(courseB.url)}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="btn-custom"
+    >
+      Learn More about Course
+    </a>
+  </td>
+</tr>
+    </tbody>
+  </table>
+</div>
+</div>
+        )}
+      </div>
+    </>
+  );
 };
 
 export default Action;
