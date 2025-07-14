@@ -2,12 +2,16 @@ from fastapi import FastAPI # type: ignore
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import create_engine, text
 
+
 app = FastAPI()
 
 # ========== CORS (Allow React frontend to fetch data) ==========
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  #  This line allows *any* frontend to access your backend
+    allow_origins=[
+        "https://www.onlinecoursecompare.com",
+        "http://localhost:5173"  # Keep this if you're testing locally too
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
