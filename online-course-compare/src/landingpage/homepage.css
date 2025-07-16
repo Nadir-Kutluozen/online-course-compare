@@ -6,3 +6,26 @@
   .custom-blue {
     color: #007bff; /* Custom blue color */
   }
+
+  .udemy-logo {
+    
+  }
+  
+  .udemy-logo img {
+    height: 80px; /* adjust size as needed */
+    opacity: 0.9;
+    transition: filter 0.3s ease, opacity 0.3s ease; /* smooth transition */
+  }
+
+  @media screen and (max-width: 768px) {
+    .udemy-logo img {
+      height: 50px; /* smaller size for mobile */
+    }
+    
+  }
+
+  .udemy-logo:hover img {
+    filter: brightness(1.2); /* slightly brighter on hover */
+    transition: filter 0.3s ease; /* smooth transition */
+    opacity: 1; /* full opacity on hover */
+  }
