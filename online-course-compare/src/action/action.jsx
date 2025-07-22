@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import CourseSearchInput from "../section2/courseSearchInput";
 import "./action.css";
-import { renderStars } from "./helperFuncsAction"; // Assuming you have a utility function for rendering stars
-import { renderLanguage } from "./helperFuncsAction"; // Assuming you have a utility function for rendering languages
+import { renderStars } from "./helperFuncsAction"; // 
+import { renderLanguage } from "./helperFuncsAction"; // 
 import { formatUdemyUrl } from './helperFuncsAction';
 
 const Action = () => {

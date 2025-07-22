@@ -20,7 +20,7 @@ const Homepage = () => {
                     <div className='col-md-6 p-3 d-flex flex-column align-items-center'>
                         <div className="row ">
                             <div className='col-4 d-flex justify-content-center align-items-center udemy-logo'>
-                                <img  className="" src="/udemy_logo.png" alt="Udemy Logo" />
+                                <img  className="" src="/edx_logo.png" alt="Udemy Logo" />
                             </div>
                             <div className='col-4 d-flex justify-content-center align-items-center udemy-logo'>
                                 <img className="" src="/corsera_logo.png" alt="Udemy Logo" />

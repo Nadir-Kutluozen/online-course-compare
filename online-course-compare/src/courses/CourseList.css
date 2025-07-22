@@ -1,0 +1,32 @@
+.course-card {
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+  }
+  
+  .course-card:hover {
+    border: 1px solid #007bff; /* Blue outline */
+    transform: translateY(-5px) scale(1.02); /* Pop effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+  }
+  
+  .course-img {
+    border-radius: 12px 12px 0 0;
+    height: 180px;
+    object-fit: cover;
+    
+  }
+  
+  .card-title {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  
+  .card-footer {
+    font-size: 0.8rem;
+    border-top: 1px solid #e9ecef;
+  }
+  
+
+
