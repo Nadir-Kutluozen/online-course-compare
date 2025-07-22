@@ -40,6 +40,16 @@ const Header = () => {
                 Courses
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/about" className="nav-link lead">
+                About
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/freeCourses" className="nav-link lead">
+                Free Courses
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

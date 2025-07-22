@@ -1,14 +1,12 @@
 .custom-img {
-    width: 300px;
+    width: 100%;
     height: auto;
+    max-width: 100%;
+
   }
 
   .custom-blue {
     color: #007bff; /* Custom blue color */
-  }
-
-  .udemy-logo {
-    
   }
   
   .udemy-logo img {
