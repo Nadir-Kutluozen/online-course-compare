@@ -1,12 +1,18 @@
 #root {
   max-width: 1280px; /* Sets a maximum width for the root element */
   margin: 0 auto;
-  padding: 2rem;
+  padding-top: 10px;
+}
+@media screen and (max-width: 768px) {
+  #root {
+    padding: 2rem; /* Reduces padding on smaller screens */
+  }
+  
 }
 
 
 .totheleft {
-  font-size: 6vw; 
+  font-size: 7vw; 
   text-align: left; 
   color: #333; /* Optional: sets a color */   
   text-transform: uppercase; /* Optional: makes it uppercase */

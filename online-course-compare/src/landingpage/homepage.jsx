@@ -6,10 +6,9 @@ const Homepage = () => {
         <>
         
             <div className="section " id='one'>
-                <div className='row vh-100 align-items-center'>
+                <div className='row align-items-center'>
                     <div className='col-md-6 p-3 '>
                         <div className=''>
-                            
                             <h1 className='totheleft'>Online</h1>
                             <h1 className='totheleft custom-blue'>Course</h1>
                             <h1 className='totheleft'>Compare</h1>
