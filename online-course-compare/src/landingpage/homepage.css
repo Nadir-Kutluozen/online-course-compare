@@ -27,3 +27,26 @@
     transition: filter 0.3s ease; /* smooth transition */
     opacity: 1; /* full opacity on hover */
   }
+
+  .homepage-wrapper {
+    position: relative;
+    overflow: hidden; /* Prevents overflow */
+    display: flex;
+
+
+  }
+  
+  .squares-layer {
+    position: absolute;
+    width: 100vw;  /* fill viewport width */
+    z-index: 0;
+    pointer-events: auto;
+    min-height: 100vh;
+  }
+  
+  .homepage-content {
+    position: relative;
+    z-index: 1; /* in front of squares */
+  }
+
+  

@@ -29,7 +29,7 @@ const Header = () => {
           <ul className="navbar-nav mx-auto text-center gap-3">
             <li className="nav-item">
               <Link to="/" className=" lead ">
-              <DynamicButton>Compare</DynamicButton>
+              <DynamicButton>Home</DynamicButton>
               </Link>
             </li>
             <li className="">

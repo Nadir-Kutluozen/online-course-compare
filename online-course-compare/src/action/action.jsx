@@ -11,8 +11,8 @@ const Action = () => {
 
   return (
     <>
-      <div className="action-section  p-4" id="action">
-        <div className="container">
+      <div className=" py-4 action-section" id="action">
+        <div className="container ">
         <h2 className="pb-5 text-center display-1">Ready to compare?</h2>
         <p className="pb-5 lead text-center">Pick the course you would like to compare and the result will appear down below</p>
         <div className="row align-items-center text-center">

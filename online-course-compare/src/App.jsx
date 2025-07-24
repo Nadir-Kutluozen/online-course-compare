@@ -12,6 +12,7 @@ import About from './about/About';
 import FreeCourseList from './courses/FreeCourseList';
 import PrivacyPolicy from './assets/PrivacyPolicy.jsx'
 import LogoSlide from './assets/LogoSlide.jsx'
+import Squares from './assets/Squares.jsx';
 // Initialize Vercel Analytics
 inject()
 

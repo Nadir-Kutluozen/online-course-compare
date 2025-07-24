@@ -5,7 +5,7 @@ const CourseSearchInput = ({ placeholder, onCourseSelect }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [courses, setCourses] = useState([]);
   const [filteredCourses, setFilteredCourses] = useState([]);
-  const [selectedCourse, setSelectedCourse] = useState(null); // ✅
+  const [selectedCourse, setSelectedCourse] = useState(""); // 
 
   useEffect(() => {
     fetch("https://onlinecourse-backend-okdb.onrender.com/courses")
@@ -23,26 +23,28 @@ const CourseSearchInput = ({ placeholder, onCourseSelect }) => {
   }, [searchTerm, courses]);
   
   const handleSelect = (course) => {
-    setSelectedCourse(course);          // show selected course above
-    setSearchTerm("");                  // ✅ clear the input box
+    setSelectedCourse(course);          // show selected course in the input box
+    setSearchTerm("");                  // clear the input box
     onCourseSelect(course);             // notify parent
   };
   
 
   return (
     <div className="course-search-wrapper">
-      {selectedCourse && (
-        <div className=" lead selected-course">
-          <strong className="">{selectedCourse.title}</strong>
-        </div>
-      )}
-      <input
-        type="text"
-        className="mb-3 custom-course-input"
-        placeholder={placeholder || "Search by course name or category..."}
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
+  <div className="input-group shadow rounded-5">
+  <span className="input-group-text bg-white border-0 " id="search-icon">
+    <i className="bi bi-search"></i>
+  </span>
+  <input
+    type="text"
+    className="form-control border-0 rounded-end-5 "
+    placeholder= {selectedCourse.title} // show selected course title
+    aria-label="Search"
+    aria-describedby="search-icon"
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+  />
+</div>
       {searchTerm && (
         <ul className="search-results">
           {filteredCourses.length > 0 ? (
