@@ -43,15 +43,16 @@ const Header = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/about" className=" lead">
-              <DynamicButton>About</DynamicButton>
-              </Link>
-            </li>
-            <li className="nav-item">
               <Link to="/freeCourses" className="lead">
               <DynamicButton>Free Courses</DynamicButton>
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/about" className=" lead">
+              <DynamicButton>About</DynamicButton>
+              </Link>
+            </li>
+           
 
           </ul>
         </div>
