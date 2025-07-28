@@ -41,9 +41,14 @@ export const renderLanguage = (locale) =>
 // Function to format Udemy URLs
 // This function assumes you have a utility function for formatting URLs
 export const formatUdemyUrl = (partialUrl) => {
-    const baseUrl = "https://www.udemy.com";
-    if (!partialUrl) return "#"; // fallback
-    return `${baseUrl}${partialUrl}`;
-  };
-    
+  if (!partialUrl) return "#";
+
+  // If it's already a full URL (starts with http), just return it
+  if (partialUrl.startsWith("http://") || partialUrl.startsWith("https://")) {
+    return partialUrl;
+  }
+
+  // Otherwise, assume it's a Udemy path and add base URL
+  return `https://www.udemy.com${partialUrl}`;
+};
 

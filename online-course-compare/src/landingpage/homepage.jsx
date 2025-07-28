@@ -19,7 +19,7 @@ const Homepage = () => {
 
       {/* Homepage Content */}
       <div className=" ">
-        <div className="" id="">
+        <div className="container" id="">
           <div className="row align-items-center">
             <div className="col-md-6 p-3">
               <div>

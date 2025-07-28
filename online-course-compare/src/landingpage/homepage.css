@@ -31,14 +31,11 @@
   .homepage-wrapper {
     position: relative;
     overflow: hidden; /* Prevents overflow */
-    display: flex;
-
-
+    min-height: 100vh; /* Ensures full viewport height */
   }
   
   .squares-layer {
     position: absolute;
-    width: 100vw;  /* fill viewport width */
     z-index: 0;
     pointer-events: auto;
     min-height: 100vh;

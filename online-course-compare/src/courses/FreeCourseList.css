@@ -1,0 +1,9 @@
+.card-text {
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* show 3 lines max */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 66px; /* match height of 3 lines */
+  }

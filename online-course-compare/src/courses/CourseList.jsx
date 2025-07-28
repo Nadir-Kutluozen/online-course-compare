@@ -4,41 +4,64 @@ import { renderStars } from '../action/helperFuncsAction';
 import { formatUdemyUrl} from '../action/helperFuncsAction'; 
 import LevelsDropDownBtn from '../assets/buttons/LevelsDropDownBtn'; 
 import PriceRange from '../assets/buttons/PriceRange';
+import PlatformDropDownBtn from '../assets/buttons/PlatformDropDownBtn';
+import { SquareLoader } from "react-spinners";
+
 
 function CourseList() {
+  
+  const [loading, setLoading] = useState(false);
   const [courses, setCourses] = useState([]);         // all courses from API
-  const [filteredCourses, setFilteredCourses] = useState([]); // courses after search
+  
   const [searchQuery, setSearchQuery] = useState("");  // user's search input
   const [filterRating, setFilterRating] = useState(""); // rating filter
   const [filterLevel, setFilterLevel] = useState(""); // level filter
   const [selectedLevelLabel, setSelectedLevelLabel] = useState("Level"); // label for dropdown button
   const [maxPrice, setMaxPrice] = useState(150); // default to max
+  const [filterPlatform, setFilterPlatform] = useState(""); // platform filter
+  const [selectedPlatformLabel, setSelectedPlatformLabel] = useState("Platform"); // label for category dropdown
 
+  const [skip, setSkip] = useState(0);
+  const limit = 20;
+  const [hasMore, setHasMore] = useState(true);
 
-  // Fetch courses from the backend
-  useEffect(() => {
-    fetch("https://onlinecourse-backend-okdb.onrender.com/courses")
+  const fetchCourses = (reset = false) => {
+    setLoading(true);
+    const params = new URLSearchParams();
+  
+    if (searchQuery) params.append("search", searchQuery);
+    if (filterRating) params.append("rating", filterRating);
+    if (filterLevel) params.append("level", filterLevel);
+    if (maxPrice !== 150) params.append("max_price", maxPrice); // only if not default
+    if (filterPlatform) params.append("platform", filterPlatform);
+  
+    params.append("skip", reset ? 0 : skip);
+    params.append("limit", limit);
+  
+    fetch(`https://onlinecourse-backend-okdb.onrender.com/courses?${params.toString()}`)
       .then((res) => res.json())
       .then((data) => {
-        setCourses(data);          // set all courses
-        setFilteredCourses(data);  // initially show all
+        setCourses((prev) => (reset ? data : [...prev, ...data]));
+        setSkip((prev) => (reset ? limit : prev + limit));
+        setHasMore(data.length === limit); // stop loading if less than limit
+        setLoading(false);
       })
-      .catch((err) => console.error("Failed to fetch courses:", err));
-  }, []);
+      .catch((err) => {
+        console.error("Fetch error:", err);
+        setLoading(false);
+      });
+  };
+
+  // Fetch courses from the backend
+  //https://onlinecourse-backend-okdb.onrender.com/courses
+  //http://localhost:8000/courses
+  useEffect(() => {
+    setSkip(0);            // reset pagination
+    fetchCourses(true);    // fetch with filters from the start
+  }, [searchQuery, filterRating, filterLevel, maxPrice, filterPlatform]);
 
   // Update filteredCourses whenever searchQuery or courses change
-  useEffect(() => {
-    const filtered = courses.filter((course) => 
-      {
-      const matchesSearch = course.title.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesRating = filterRating ? course.rating >= parseFloat(filterRating) : true;
-      const matchesLevel = filterLevel ? course.level.toLowerCase() === filterLevel.toLowerCase() : true;
-      const matchesPrice = course.price <= maxPrice;
 
-      return matchesSearch && matchesRating && matchesLevel && matchesPrice;
-    });
-    setFilteredCourses(filtered);
-  }, [searchQuery, filterRating, filterLevel, courses, maxPrice]);
   
   return (
     <div className="container py-5">
@@ -78,6 +101,13 @@ function CourseList() {
                 }} 
                 label={selectedLevelLabel}
             />
+            <PlatformDropDownBtn 
+                onSelectPlatform={(Platform) => {
+                  setFilterPlatform(Platform); // filters the courses by category
+                  setSelectedPlatformLabel(Platform || "Platform"); // updates the button label
+                }} 
+                label={selectedPlatformLabel}
+                />
             <PriceRange maxPrice={maxPrice} onChange={setMaxPrice} />
             <button
               className="btn btn-sm rounded-5 btn-outline-secondary"
@@ -87,6 +117,8 @@ function CourseList() {
                 setFilterLevel(""); // Reset level filter
                 setSelectedLevelLabel("Level"); // Reset dropdown label
                 setMaxPrice(150); // Reset price filter
+                setFilterPlatform(""); // Reset platform filter
+                setSelectedPlatformLabel("Platform"); // Reset platform dropdown label
               }}
             >
               Reset
@@ -96,13 +128,13 @@ function CourseList() {
       </div>
 
       {/* Title */}
-      <h2 className="text-center display-4 mb-4">Courses</h2>
+      <h2 className=" display-5 mb-4 totheleft">Courses</h2>
+      
 
       {/* Filtered Course List */}
       <div className="row g-4">
-        {filteredCourses.length > 0 ? (
-          filteredCourses.map((course) => (
-            
+        {courses.length > 0 ? (
+          courses.map((course) => (
             <div key={course.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
               <a
                 href={formatUdemyUrl(course.url)}
@@ -129,13 +161,30 @@ function CourseList() {
               </a>
             </div>
           ))
-        ) : (
-          <p className="text-center">No courses found.</p>
+        ) : loading && (
+          <div className="text-center mt-2">
+            <SquareLoader color="#007bff" size={60} />
+          </div>
         )}
       </div>
+      {/* Load More Button */}
+{hasMore && (
+  <div className="text-center mt-4">
+    {loading ? (
+      <SquareLoader color="#007bff" size={50} />
+    ) : (
+      <button className="btn btn-outline-dark rounded-5" onClick={() => fetchCourses(false)}>
+        Load More
+      </button>
+    )}
+  </div>
+)}
 
     </div>
-  );
+    
+  ) 
 }
+
+
 
 export default CourseList;

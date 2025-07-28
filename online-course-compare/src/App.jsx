@@ -12,18 +12,21 @@ import About from './about/About';
 import FreeCourseList from './courses/FreeCourseList';
 import PrivacyPolicy from './assets/PrivacyPolicy.jsx'
 import LogoSlide from './assets/LogoSlide.jsx'
-import Squares from './assets/Squares.jsx';
+import { Square } from 'lucide-react'
+
 // Initialize Vercel Analytics
 inject()
 
 function App() {
   return (
     <Router>
+      
       <Header />
       <Routes>
-
         <Route path="/" element={
           <>
+          {/* Main content of the homepage */}  
+            
             <Homepage />
             <Action />
             <LogoSlide/>

@@ -14,9 +14,15 @@
   .course-img {
     border-radius: 12px 12px 0 0;
     height: 180px;
-    object-fit: cover;
-    
+    width: 100%;             /* make image span full width */
+    object-fit: contain;       /* crops image nicely while keeping aspect */
+    display: block;          /* ensures no extra space below image */
+    margin: 0 auto;         /* centers the image */ 
+    background-color: #f8f9fa; /* optional: for images that fail to load */
+
+
   }
+  
   
   .card-title {
     font-weight: 600;

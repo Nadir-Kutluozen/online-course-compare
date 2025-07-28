@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./courseSearchInput.css";
+import { SquareLoader } from "react-spinners";
+
 
 const CourseSearchInput = ({ placeholder, onCourseSelect }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [courses, setCourses] = useState([]);
   const [filteredCourses, setFilteredCourses] = useState([]);
   const [selectedCourse, setSelectedCourse] = useState(""); // 
+  const [loading, setLoading] = useState(false);
+
 
   useEffect(() => {
     fetch("https://onlinecourse-backend-okdb.onrender.com/courses")
