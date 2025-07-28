@@ -1,10 +1,10 @@
 import React from 'react';
 import './card.css';
 
-const Card = ({ title, description, image }) => {
+const Card = ({ title, description,Icon  }) => {
     return (
         <div className="card-custom">
-            <img src={image} alt={title} className="card-image" />
+            {Icon && <Icon size={50}  className="mb-3 text-primary" />}
             <div className="card-content">
                 <h3 className="card-tit">{title}</h3>
                 <p className="card-desc">{description}</p>

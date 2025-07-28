@@ -163,7 +163,7 @@ function CourseList() {
           ))
         ) : loading && (
           <div className="text-center mt-2">
-            <SquareLoader color="#007bff" size={60} />
+            <SquareLoader color="#007bff" size={100} />
           </div>
         )}
       </div>

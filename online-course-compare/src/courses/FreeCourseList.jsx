@@ -56,7 +56,7 @@ const FreeCourseList = () => {
       {/* Load More */}
       <div className="text-center mt-4">
         {loading ? (
-          <SquareLoader color="#007bff" size={50} />
+          <SquareLoader color="#007bff" size={100} />
         ) : (
           <button className="btn btn-outline-dark rounded-5" onClick={fetchMoreCourses}>
             Load More

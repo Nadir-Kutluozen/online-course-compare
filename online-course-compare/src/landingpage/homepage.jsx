@@ -27,9 +27,8 @@ const Homepage = () => {
                 <h1 className="totheleft custom-blue ">Course</h1>
                 <h1 className="totheleft homepage-content">Compare</h1>
                 <p className="pt-3 lead homepage-content">
-                  Find the best online courses for you. Make informed decisions.
-                  Start your learning journey today! Compare courses from different
-                  platforms such as Udemy, Coursera and edX
+                Explore 10,000+ online courses from top platforms like Udemy, Coursera, and edX.
+                Find the right course for your future, compare options, and start learning smarter today.
                 </p>
               </div>
             </div>
