@@ -6,6 +6,7 @@ import LevelsDropDownBtn from '../assets/buttons/LevelsDropDownBtn';
 import PriceRange from '../assets/buttons/PriceRange';
 import PlatformDropDownBtn from '../assets/buttons/PlatformDropDownBtn';
 import { SquareLoader } from "react-spinners";
+import { getPlatformLogo } from '../action/helperFuncsAction'; 
 
 
 function CourseList() {
@@ -143,14 +144,29 @@ function CourseList() {
                 className="text-decoration-none text-dark"
               >
                 <div className="card h-100 course-card">
-                  <img
-                    src={course.image}
-                    alt={course.title}
-                    className="p-3 img-fluid course-img"
-                  />
+                <div className="position-relative">
+                    {/* Platform logo badge */}
+                    
+                    {/* Main course image */}
+                    <img
+                      src={course.image}
+                      alt={course.title}
+                      className="p-3 img-fluid course-img"
+                    />
+                  </div>
                   <div className="card-body d-flex flex-column">
                     <h5 className="card-title">{course.title}</h5>
                     <p className="card-text text-muted">{course.headline}</p>
+                    {getPlatformLogo(course.platform) && (
+                      <div className="platform-logo-wrapper">
+                        <img
+                          src={getPlatformLogo(course.platform)}
+                          alt={`${course.platform} logo`}
+                          className="platform-logo"
+                        />
+                      </div>
+                    )}
+
                     <p className="mt-auto fw-bold">${course.price}</p>
                   </div>
                   <div className="card-footer small text-muted">
@@ -171,7 +187,7 @@ function CourseList() {
 {hasMore && (
   <div className="text-center mt-4">
     {loading ? (
-      <SquareLoader color="#007bff" size={50} />
+      <SquareLoader color="#007bff" size={100} />
     ) : (
       <button className="btn btn-outline-dark rounded-5" onClick={() => fetchCourses(false)}>
         Load More

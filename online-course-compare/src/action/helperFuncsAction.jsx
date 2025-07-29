@@ -52,3 +52,15 @@ export const formatUdemyUrl = (partialUrl) => {
   return `https://www.udemy.com${partialUrl}`;
 };
 
+export const getPlatformLogo = (platform) => {
+  const platformLower = (platform || "").toLowerCase();
+
+  if (platformLower.includes("udemy")) {
+    return "udemy_logo.png";
+  }
+  if (platformLower.includes("coursera")) {
+    return "corsera_logo.png";
+  }
+  return null; // fallback
+};
+

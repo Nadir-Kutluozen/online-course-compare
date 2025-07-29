@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { renderStars, formatUdemyUrl } from '../action/helperFuncsAction';
 import { SquareLoader } from 'react-spinners';
 import './FreeCourseList.css'; // Assuming you have a CSS file for styling
+import { getPlatformLogo } from '../action/helperFuncsAction'; // Import the utility function for platform logos
 
 const FreeCourseList = () => {
   const [courses, setCourses] = useState([]);
@@ -37,6 +38,15 @@ const FreeCourseList = () => {
           <div key={course.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
             <a href={formatUdemyUrl(course.url)} target="_blank" rel="noopener noreferrer" className="text-decoration-none text-dark">
               <div className="card  course-card">
+                                    {getPlatformLogo(course.platform) && (
+                                      <div className="platform-logo-wrapper">
+                                        <img
+                                          src={getPlatformLogo(course.platform)}
+                                          alt={`${course.platform} logo`}
+                                          className="platform-logo"
+                                        />
+                                      </div>
+                                    )}
                 <img src={course.image} alt={course.title} className="p-3 course-img" />
                 <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{course.title}</h5>
