@@ -8,6 +8,11 @@ const logos = [
   '/edx_logo.png',
   '/udacity-dark.png',
   '/linkedin-original.png',
+  '/udemy_logo.png',
+  '/corsera_logo.png',
+  '/edx_logo.png',
+  '/udacity-dark.png',
+  '/linkedin-original.png',
 ];
 
 const LogoSlide = () => {
