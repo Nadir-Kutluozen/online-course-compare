@@ -35,7 +35,7 @@ const Homepage = () => {
             <div className="col-md-6 p-3 d-flex flex-column align-items-center">
               <img
                 className="img-fluid homepage-content custom-img mb-3"
-                src="/homepage_logo.svg"
+                src="./homepage_logo.svg"
                 alt="Online Course Compare"
               />
             </div>
